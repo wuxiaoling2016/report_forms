@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jxc.dao.ProductMapper">
+	<select id="findAll" resultType="com.jxc.model.Product">
+		select * from product
+	</select>
+  	<select id="findById" parameterType="Integer" resultType="com.jxc.model.Product">
+		select * from product where pid=#{pid}
+	</select>
+	<insert id="addProduct" parameterType="com.jxc.model.Product">
+		insert into product(pname,brand,quantity,price,cost,picture) values (#{pname},
+		#{brand},#{quantity},#{price},#{cost},#{picture})
+	</insert>
+	<update id="updateProduct" parameterType="com.jxc.model.Product">
+		update product set pname=#{pname},brand=#{brand},quantity=#{quantity},
+		price=#{price},cost=#{cost},picture=#{picture} where pid=#{pid}
+	</update>
+</mapper>
